@@ -1,4 +1,4 @@
-project(llhttp++)
+project(llhttplus)
 cmake_minimum_required (VERSION 3.14)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -14,19 +14,19 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(llhttp)
 
 add_library(
-    llhttp++
+    llhttplus
     STATIC
-    src/llhttp++.cpp
+    src/llhttplus.cpp
 )
 
 target_link_libraries(
-    llhttp++
+    llhttplus
     PRIVATE
     llhttp
 )
 
 target_include_directories(
-    llhttp++
+    llhttplus
     PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>  
 	$<INSTALL_INTERFACE:${MODULE_ARGS_INCLUDE_DIRS}>
@@ -45,18 +45,18 @@ endif()
 # ---------------------------------------------------------------------------------------
 include(CMakePackageConfigHelpers)
 
-set(PROJECT_NAMESPACE llhttp++)
+set(PROJECT_NAMESPACE llhttplus)
 set(LIB_INSTALL_DIR lib/)
-set(config_targets_file "llhttp++-config-targets.cmake")
+set(config_targets_file "llhttplus-config-targets.cmake")
 
 configure_package_config_file(
-	${CMAKE_CURRENT_SOURCE_DIR}/cmake/llhttp++-config.cmake.in
-	${CMAKE_CURRENT_BINARY_DIR}/llhttp++-config.cmake
-	INSTALL_DESTINATION ${CMAKE_INSTALL_PREFIX}/share/llhttp++
+	${CMAKE_CURRENT_SOURCE_DIR}/cmake/llhttplus-config.cmake.in
+	${CMAKE_CURRENT_BINARY_DIR}/llhttplus-config.cmake
+	INSTALL_DESTINATION ${CMAKE_INSTALL_PREFIX}/share/llhttplus
 )
 
 write_basic_package_version_file(
-  ${CMAKE_CURRENT_BINARY_DIR}/llhttp++-config-version.cmake
+  ${CMAKE_CURRENT_BINARY_DIR}/llhttplus-config-version.cmake
   VERSION 0.0.1
   COMPATIBILITY SameMajorVersion
 )
@@ -67,19 +67,19 @@ install(
 )
 
 install(
-	TARGETS	llhttp++
-	EXPORT  llhttp++
+	TARGETS	llhttplus
+	EXPORT  llhttplus
 )
 
 install(
-	EXPORT		llhttp++
-	DESTINATION ${CMAKE_INSTALL_PREFIX}/share/syrup
+	EXPORT		llhttplus
+	DESTINATION ${CMAKE_INSTALL_PREFIX}/share/llhttplus
 	NAMESPACE   ${PROJECT_NAMESPACE}:: 
 	FILE		${config_targets_file}
 )
 
 install(
-	FILES ${CMAKE_CURRENT_BINARY_DIR}/llhttp++-config.cmake
-    ${CMAKE_CURRENT_BINARY_DIR}/llhttp++-config-version.cmake
-    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/llhttp++
+	FILES ${CMAKE_CURRENT_BINARY_DIR}/llhttplus-config.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/llhttplus-config-version.cmake
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/llhttplus
 )

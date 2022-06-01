@@ -8,7 +8,7 @@
 #include <string_view>
 #include <memory>
 
-namespace llhttp
+namespace llhttplus
 {
     using Header = std::pair<std::string_view, std::string_view>;
 

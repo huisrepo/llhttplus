@@ -6,5 +6,5 @@ add_executable(
 target_link_libraries(
 	cpp_bind_test
 	PRIVATE
-	llhttp++
+	llhttplus
 )

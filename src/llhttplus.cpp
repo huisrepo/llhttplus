@@ -1,8 +1,8 @@
-#include <llhttp++/llhttp++.hpp>
-#include <llhttp++/setting.hpp>
+#include <llhttplus/llhttplus.hpp>
+#include <llhttplus/setting.hpp>
 #include <iostream>
 
-namespace llhttp
+namespace llhttplus
 {
     class DefaultSetting : public llhttp::ParserSetting<DefaultSetting>
     {
